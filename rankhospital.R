@@ -5,7 +5,7 @@
 
 rankhospital <- function(state, outcome, num = "best") {
 	# Read outcome data
-	data <- read.csv("outcome-of-care-measures.csv",
+	data <- read.csv(file.path("data","outcome-of-care-measures.csv"),
 			 stringsAsFactors = FALSE,
 			 na.strings = "Not Available")
 	
@@ -42,7 +42,7 @@ rankhospital <- function(state, outcome, num = "best") {
 		return(best)
 		
 	} else if(num == "worst") {
-		worst <- filtered_data[length(filtered_data), "Hospital.Name"]
+		worst <- filtered_data[nrow(filtered_data), "Hospital.Name"]
 		return(worst)
 		
 	} else if(is.numeric(num)) {
